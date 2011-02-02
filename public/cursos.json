@@ -1,0 +1,26 @@
+{
+  results: [
+    {
+      id:1,
+      nome:"Javascript Básico",
+      descricao: "Introdução à linguagem Javascript",
+      justificativa: "Linguagem mais usada no mundo e exclusivo no client-side",
+      instrutores: [{id: 1, nome: "Christiano Milfont"}],
+      ementa: [
+        {
+          id:1,
+          topico: "Introdução",
+          topicos: [{id: 2, topico: "Variáveis"}]
+        }, 
+        {
+          id: 3,
+          topico: "Fluxos",
+          topicos: [{id: 4, topico: "Fluxos de repetição"}]
+        }
+      ]
+    }
+  ],
+  total: 3,
+  message: "Cursos encontrados",
+  success: true
+}
