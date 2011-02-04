@@ -18,6 +18,44 @@
           topicos: [{id: 4, topico: "Fluxos de repetição"}]
         }
       ]
+    },
+    {
+      id:2,
+      nome:"Javascript Avançado",
+      descricao: "Recursos avançados sobre Javascript",
+      justificativa: "Linguagem mais usada no mundo e exclusivo no client-side",
+      instrutores: [{id: 1, nome: "Christiano Milfont"}],
+      ementa: [
+          {
+            id:5,
+            topico: "Orientação a objetos",
+            topicos: [{id: 6, topico: "Herança"}]
+          }, 
+          {
+            id: 7,
+            topico: "Programação Funcional",
+            topicos: [{id: 8, topico: "Currying e Closure"}]
+          }
+        ]
+    },
+    {
+       id:3,
+        nome:"Sencha Básico",
+        descricao: "Introdução ao Framework de propósito geral Sencha",
+        justificativa: "Linguagem mais usada no mundo e exclusivo no client-side",
+        instrutores: [{id: 1, nome: "Christiano Milfont"}],
+        ementa: [
+          {
+            id:9,
+            topico: "Ext-core",
+            topicos: [{id: 10, topico: "Variáveis"}]
+          }, 
+          {
+            id: 11,
+            topico: "Extjs",
+            topicos: [{id: 12, topico: "Fluxos de repetição"}]
+          }
+        ]
     }
   ],
   total: 3,
