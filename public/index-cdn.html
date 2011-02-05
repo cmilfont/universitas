@@ -27,6 +27,21 @@
     <div id="treinamento">
       
     </div>
+    
+    <div id="template" style="display:none;">
+    <tpl for=".">
+      <div style="width:250px; float:left; background-color:#777777; margin: 5px;">
+        <img src={profile_image_url}  />
+        <span>
+          <a title="{name}" href="http://twitter.com/#!/{screen_name}"><strong>{screen_name}</strong></a>
+          <span>{name}</span>
+        </span>
+        <div>{description}</div>
+      </div>
+    </tpl>
+    </div>
+    
+    <div id="palestrantes"></div>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://extjs-public.googlecode.com/svn/tags/extjs-3.3.1/release/adapter/jquery/ext-jquery-adapter.js"></script>
