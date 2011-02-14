@@ -54,7 +54,15 @@ function accessLogger(req, res, next) {
 }
 
 app.get('/', function(req, res){ 
-  res.render('index'); 
+  res.render(__dirname + '/public/templates/index'); 
+});
+
+app.get('/instrutores', function(req, res){ 
+	
+	console.log(req.params);
+	var instrutores = [users];
+	
+  res.send(JSON.stringify(instrutores));
 });
 
 app.get('/restricted', restrict, accessLogger, function(req, res){
@@ -97,6 +105,7 @@ app.post('/login', function(req, res){
   });
 });
 
+app.use(express.errorHandler({ showStack: true }));
 app.use(express.staticProvider(__dirname + '/public'));
 
 app.listen(3000);

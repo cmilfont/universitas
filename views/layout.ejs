@@ -29,15 +29,23 @@
         this.use(Sammy.EJS);
 
         this.get('#/instrutores', function() {
-          this.partial('/templates/instrutores.ejs', whos, function(html) {
-            //$('#ementa').html(html);
-          });
+          this.load('instrutores', {cache: false})
+           .renderEach('/templates/instrutores.ejs')
+           .then(function(content){
+            console.log(this)
+              //this.redirect('#/'+ $('.ticket:first').attr('id'))
+            })
+           .swap();
+        });
+        
+        this.get('#/home', function() {
+          this.partial('/templates/index.ejs', whos);
         });
 
       });
 
       $(function() {
-        app.run('#/');
+        app.run();
       });
     })(jQuery);
   </script>
