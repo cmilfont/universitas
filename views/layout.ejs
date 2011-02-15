@@ -36,22 +36,12 @@
         this.use(Sammy.XTemplate);
 
         this.get('#/instrutores', function() {
-          this.load('instrutores', {cache: false, json:true}, function(dados){
-            //console.log(dados)
-            this.partial('/templates/instrutores.ejs', dados)
-
-          })
-          // .render('/templates/instrutores.ejs')
-          // .then(function(content) {
-          //   console.log(this);
-          //   console.log(content);
-          //   $('.video').html(content);
-          // });
+             
+          this.load('instrutores', {cache: true, json:true})
+              .render('/templates/instrutores.ejs')
+              .swap();
+          
         });
-        
-        
-
-        
         
         
         this.get('#/home', function() {
@@ -61,7 +51,7 @@
       });
 
       $(function() {
-        app.run();
+        app.run('#/home');
       });
     })(jQuery);
   </script>
