@@ -23,9 +23,7 @@ app.dynamicHelpers({
 });
 
 var users = {
-  tj: {
-    name: 'tj', salt: 'randomly-generated-salt', pass: md5('foobar' + 'randomly-generated-salt')
-  }
+    name: 'Milfont', salt: 'randomly-generated-salt', pass: md5('foobar' + 'randomly-generated-salt')
 };
 
 // Used to generate a hash of the plain-text password + salt

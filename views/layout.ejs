@@ -15,6 +15,13 @@
   <script src="/js/jquery-1.5.min.js" type="text/javascript"></script>
   <script src="/js/sammy-latest.min.js" type="text/javascript"></script>
   <script src="/js/sammy.ejs.js" type="text/javascript"></script>
+  
+  <script src="/js/ext-jquery-adapter.js" type="text/javascript"></script>
+  <script src="/js/ext-all.js" type="text/javascript"></script>
+  
+  <script src="/js/sammy.sencha.js" type="text/javascript"></script>
+  
+  
   <script type="text/javascript">
     ;(function($) {
       var whos = {
@@ -26,17 +33,26 @@
       };
 
       var app = $.sammy('#content', function() {
-        this.use(Sammy.EJS);
+        this.use(Sammy.XTemplate);
 
         this.get('#/instrutores', function() {
-          this.load('instrutores', {cache: false})
-           .renderEach('/templates/instrutores.ejs')
-           .then(function(content){
-            console.log(this)
-              //this.redirect('#/'+ $('.ticket:first').attr('id'))
-            })
-           .swap();
+          this.load('instrutores', {cache: false, json:true}, function(dados){
+            //console.log(dados)
+            this.partial('/templates/instrutores.ejs', dados)
+
+          })
+          // .render('/templates/instrutores.ejs')
+          // .then(function(content) {
+          //   console.log(this);
+          //   console.log(content);
+          //   $('.video').html(content);
+          // });
         });
+        
+        
+
+        
+        
         
         this.get('#/home', function() {
           this.partial('/templates/index.ejs', whos);
