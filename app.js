@@ -2,6 +2,8 @@
 var express = require('express')
   , crypto = require('crypto');
 
+//var usersController = require('./app/controllers/users');
+  
 var app = express.createServer();
 
 app.set('views', __dirname + '/views');
@@ -9,7 +11,12 @@ app.set('view engine', 'ejs');
 
 app.use(express.bodyDecoder());
 app.use(express.cookieDecoder());
-app.use(express.session({ secret: 'keyboard cat' }));
+app.use(express.logger());
+app.use(express.session({ secret: 'universitas' }));
+
+
+require('./app/controllers/users')(app);
+require('./app/controllers/cursos')(app);
 
 app.dynamicHelpers({
   message: function(req){
@@ -56,8 +63,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/instrutores', function(req, res){ 
-	
-	console.log(req.params);
+console.log('mensagem');	
 	var instrutores = [users];
 	
   res.send(JSON.stringify(instrutores));
@@ -83,6 +89,9 @@ app.get('/login', function(req, res){
 });
 
 app.post('/login', function(req, res){
+
+console.log('mensagem');
+
   authenticate(req.body.username, req.body.password, function(err, user){
     if (user) {
       // Regenerate session when signing in
@@ -103,8 +112,8 @@ app.post('/login', function(req, res){
   });
 });
 
-app.use(express.errorHandler({ showStack: true }));
+app.use(express.errorHandler({ showStack: false }));
 app.use(express.staticProvider(__dirname + '/public'));
 
-app.listen(3000);
-console.log('Express started on port 3000');
+app.listen(8000);
+console.log('Express started on port 8000');
