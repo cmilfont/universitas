@@ -7,14 +7,14 @@ feature "Realizar Inscricao", %q{
 } do
 
   background do
-    @turma = FactoryGirl.create :turma
+    @turma = FactoryGirl.create :turma_product_on_rails
   end
 
   context "Com Perfil Completo" do
     scenario "Redireciona para realizar pagamento" do
       visit turma_path(@turma)
       click_on "Me Inscrever"
-      expect(page).to redirect_to realizar_pagamento_path(@inscricao)
+      expect(page).to redirect_to @turma.curso.link_pagamento
     end
   end  # /perfil completo
 
