@@ -8,6 +8,8 @@ describe Curso do
   end
 
   describe "Validações" do
+    it { should validate_presence_of :instrutor }
+    it { should validate_presence_of :tema }
     it { should validate_presence_of :titulo }
     it { should validate_presence_of :descricao }
     it { should validate_presence_of :metodologia }

@@ -2,7 +2,9 @@ class Curso < ActiveRecord::Base
   
   belongs_to :tema
   belongs_to :instrutor
-  
+
+  validates_presence_of :instrutor
+  validates_presence_of :tema
   validates_presence_of :titulo
   validates_presence_of :descricao
   validates_presence_of :metodologia
