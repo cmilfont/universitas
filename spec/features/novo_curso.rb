@@ -7,21 +7,21 @@ feature "Novo Curso", %q{
 } do
 
   background do
-    #Dado que o professor Christiano Milfont esta cadastrado
-    #Dado que tenha um tema Tema 1 cadastrado
+    Instrutor.create :nome => "Christiano Milfont"
+    Tema.create :nome => "Tema 1"
   end
 
   scenario "Cadastrar novo curso" do
-    visit new_cursos_path
-    choose "Christiano Milfont"
+    visit new_curso_path
+    select "Christiano Milfont", from: 'Instrutor'
     fill_in "Titulo", with: "Product On Rails"
     fill_in "Descrição", with: "Sentindo a necessidade do mercado por ..."
     fill_in "Metodologia", with: "Com base em uma aplicação RoR pré-existente..."
     fill_in "Ementa", with: "1 - Topicos Base"
-    choose "Tema 1"
+    select "Tema 1", from: 'Tema'
     fill_in "Carga Horária", with: "12h/aula, iniciando as 19h e finalizando as 22h."
     fill_in "Valor", with: "Valor: R$200,00 reais no boleto (consultar cmilfont@milfont.org) ou via paypal."
-    fill_in "Link paypal", with: "https://www.paypal.com/br/"
+    fill_in "Link pagamento", with: "https://www.paypal.com/br/"
     click_on "Cadastrar"
     expect(page).to have_content "Curso Product On Rails"
   end

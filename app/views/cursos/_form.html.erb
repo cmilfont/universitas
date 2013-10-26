@@ -1,0 +1,56 @@
+<%= form_for(@curso) do |f| %>
+  <% if @curso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@curso.errors.count, "error") %> prohibited this technique from being saved:</h2>
+ 
+      <ul>
+      <% @curso.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :instrutor_id %><br>
+	<%= f.select(:instrutor_id, Instrutor.all.order(:nome).map{|instrutor| [instrutor.nome, instrutor.id] } ) %>
+  </div> 
+
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao, "Descrição" %><br>
+    <%= f.text_area :descricao,  size: "84x20" %>
+  </div>
+  <div class="field">
+    <%= f.label :metodologia %><br>
+    <%= f.text_area :metodologia,  size: "84x20" %>
+  </div>	
+  <div class="field">
+    <%= f.label :ementa %><br>
+    <%= f.text_area :ementa,  size: "84x20" %>
+  </div>
+  <div class="field">
+    <%= f.label :carga_horaria, "Carga Horária" %><br>
+    <%= f.text_field :carga_horaria %>
+  </div>	
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>  
+  <div class="field">
+    <%= f.label :link_pagamento %><br>
+    <%= f.text_field :link_pagamento %>
+  </div>  
+
+  <div class="field">
+    <%= f.label :tema_id %><br>
+    <%= f.select(:tema_id, Tema.all.order(:nome).map{|tema| [tema.nome, tema.id] } ) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Cadastrar" %>
+  </div>
+<% end %>
