@@ -12,7 +12,14 @@ class TurmasController < ApplicationController
   	respond_with @turma
   end
 
-  def turma_params
-    params.require(:turma).permit(:curso_id, datas_attributes: [:data])
-	end
+  def show
+  	Turma.find(turma_params[:id])
+  end
+  
+  private
+  	def turma_params
+    	params.require(:turma).permit(:curso_id, datas_attributes: [:data])
+		end
+
+
 end

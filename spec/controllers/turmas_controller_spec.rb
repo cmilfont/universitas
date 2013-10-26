@@ -17,4 +17,10 @@ describe TurmasController do
     end
   end
 
+  describe "GET 'show' " do
+    it "Deve chamar o metodo show" do
+      Turma.should_receive(:find).once
+      get 'show', id: 1
+    end
+  end
 end
