@@ -3,5 +3,5 @@
 Matriculas abertas
 
 <% if user_signed_in? %>
-  <a href="">Inscrever</a>
+  <%= link_to 'Me Inscrever', inscricao_path, method: :post %>
 <% end %>
