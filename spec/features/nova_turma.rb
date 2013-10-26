@@ -5,15 +5,14 @@ feature "Cadastro de Artes Marciais", %q(
 	Eu quero cadastrar uma arte marcial
 ) do
 	background do
-		FactoryGirl.create(:turma_product_on_rails)
+		FactoryGirl.create(:curso_product_on_rails)
 	end
 
 	scenario "Nova turma" do
 		visit new_turma_path
-		#TODO - escolher o Product on rails em especifico
-		all('#curso_id option')[0].select_option
-		#TODO - E escolhi as datas "10 a 13 de Setembro de 2012"
+		select "Product On Rails", from: "Curso"
+		select '2011/01/01', :from => 'Data'
 		
-		expect(page).to have_content ["Matrículas abertas","Curso Product On Rails"]
+		expect(page).to have_content "Curso Product On Rails"
 	end
 end

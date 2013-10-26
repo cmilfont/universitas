@@ -11,7 +11,8 @@
 	<% end %>
 
 	<div class="field">
-		Curso: <%= f.select(:curso_id, Curso.all.map { |f| [f["titulo"], f["id"]] }) %>
+  	<%= f.label :curso_id %><br>
+		<%= f.select(:curso_id, Curso.all.map { |f| [f["titulo"], f["id"]] }) %>
 	</div>
 
 	<div class="field">
