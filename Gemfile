@@ -48,3 +48,6 @@ group :test, :development do
   #gem 'capybara-webkit'
 
 end
+
+
+gem 'devise'
