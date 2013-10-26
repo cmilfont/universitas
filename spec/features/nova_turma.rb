@@ -11,8 +11,8 @@ feature "Cadastro de Artes Marciais", %q(
 	scenario "Nova turma" do
 		visit new_turma_path
 		select "Product On Rails", from: "Curso"
-		select '2011/01/01', :from => 'Data'
+		fill_in "Data", with: "02/02/2013"
 		
-		expect(page).to have_content "Curso Product On Rails"
+		expect(page).to have_content "Product On Rails"
 	end
 end
