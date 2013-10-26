@@ -7,6 +7,9 @@ Capybara.configure do |config|
   config.ignore_hidden_elements = true
   config.default_selector = :css
   config.default_wait_time = 10
+
+  config.default_driver = :selenium
+
 end
 
 RSpec.configure do |config|
