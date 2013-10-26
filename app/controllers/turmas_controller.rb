@@ -4,7 +4,6 @@ class TurmasController < ApplicationController
 
   def new
   	@turma = Turma.new(datas: [DataTurma.new])
-  	#@turma.datas << DataTurma.new
   end
 
   def create
@@ -13,7 +12,7 @@ class TurmasController < ApplicationController
   end
 
   def show
-  	Turma.find(params[:id])
+  	@turma = Turma.find(params[:id])
   end
   
   private
