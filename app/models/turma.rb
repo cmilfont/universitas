@@ -1,5 +1,6 @@
 class Turma < ActiveRecord::Base
   has_many :datas, :class_name => "DataTurma"
+  belongs_to :curso
 
   validates :datas, :presence => true
 

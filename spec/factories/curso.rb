@@ -4,4 +4,19 @@ FactoryGirl.define do
     #titulo "Anaconda Choke"
   end
 
+  factory :curso_product_on_rails, class: Curso do
+    titulo "Product On Rails"
+    descricao "Curso legal"
+    metodologia "boa"
+    ementa "tudo"
+    carga_horaria "200"
+    valor "300"
+    link_pagamento "paypal.com"
+
+    after(:build) do |f|
+			f.instrutor_id = Instrutor.create(nome: "Milfont")
+			f.tema_id = Tema.create(nome: "Rails")
+		end
+  end
+
 end
