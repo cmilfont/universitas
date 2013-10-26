@@ -1,0 +1,26 @@
+<%= form_for(@turma) do |f| %>
+	<% if @turma.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@turma.errors.count, "error") %> prohibited this turma from being saved:</h2>
+			<ul>
+				<% @turma.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field">
+		Curso: <%= f.select(:curso_id, Curso.all.map { |f| [f["titulo"], f["id"]] }) %>
+	</div>
+
+	<div class="field">
+		<%= f.fields_for :datas do |builder| %>
+        	<%= render 'data_fields', :f => builder %>
+    	<% end %>
+	</div>	
+
+	<div class="actions">
+		<%= f.submit "Cadastrar" %>
+	</div>
+<% end %>

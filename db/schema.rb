@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131026174923) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "cursos", force: true do |t|
     t.integer  "instrutor_id"
     t.integer  "tema_id"
@@ -30,6 +27,13 @@ ActiveRecord::Schema.define(version: 20131026174923) do
     t.datetime "updated_at"
   end
 
+  create_table "datas_turma", force: true do |t|
+    t.date     "data"
+    t.integer  "turma_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "instrutors", force: true do |t|
     t.string   "nome"
     t.datetime "created_at"
@@ -38,6 +42,12 @@ ActiveRecord::Schema.define(version: 20131026174923) do
 
   create_table "temas", force: true do |t|
     t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "turmas", force: true do |t|
+    t.string   "curso_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
