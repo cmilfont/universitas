@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe TurmasController do
 
+  let(:turma) {
+    FactoryGirl.build(:turma_product_on_rails, :id => 2)
+  }
+
   describe "GET 'new'" do
     it "Deve chamar o metodo new" do
       Turma.should_receive(:new).once
@@ -11,9 +15,8 @@ describe TurmasController do
 
   describe "GET 'create'" do
     it "Deve chamar o metodo create" do
-      turma = FactoryGirl.build(:turma_product_on_rails)
-      Turma.should_receive(:create).with(turma.attributes).once
-      get 'create', turma: turma.attributes
+      Turma.should_receive(:create).with(anything).once.and_return turma
+      post 'create', turma: turma.attributes
     end
   end
 

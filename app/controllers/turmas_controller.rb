@@ -3,8 +3,8 @@ class TurmasController < ApplicationController
 	respond_to :html
 
   def new
-  	@turma = Turma.new
-  	@turma.datas << DataTurma.new
+  	@turma = Turma.new(datas: [DataTurma.new])
+  	#@turma.datas << DataTurma.new
   end
 
   def create
@@ -13,7 +13,7 @@ class TurmasController < ApplicationController
   end
 
   def show
-  	Turma.find(turma_params[:id])
+  	Turma.find(params[:id])
   end
   
   private

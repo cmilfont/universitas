@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131026174923) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
 
   create_table "cursos", force: true do |t|
     t.integer  "instrutor_id"
@@ -27,35 +23,31 @@ ActiveRecord::Schema.define(version: 20131026174923) do
     t.string   "carga_horaria"
     t.string   "valor"
     t.string   "link_pagamento"
-=======
-ActiveRecord::Schema.define(version: 20131026181826) do
-
-  create_table "cursos", force: true do |t|
-    t.string   "titulo"
->>>>>>> [#2] Nova turma - Testes e implementacao com @vladymir
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-  create_table "instrutors", force: true do |t|
-    t.string   "nome"
-=======
   create_table "datas_turma", force: true do |t|
     t.date     "data"
     t.integer  "turma_id"
->>>>>>> [#2] Nova turma - Testes e implementacao com @vladymir
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
+  create_table "instrutors", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "temas", force: true do |t|
     t.string   "nome"
-=======
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "turmas", force: true do |t|
     t.string   "curso_id"
->>>>>>> [#2] Nova turma - Testes e implementacao com @vladymir
     t.datetime "created_at"
     t.datetime "updated_at"
   end
