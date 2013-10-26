@@ -14,7 +14,7 @@ Dir[Rails.root.join("spec/factories/**/*.rb")].each {|f| require f}
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
-Rspec.configure do |config|
+RSpec.configure do |config|
 
   DatabaseCleaner.logger = Rails.logger
 

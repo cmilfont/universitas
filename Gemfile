@@ -44,6 +44,7 @@ group :test, :development do
   gem 'simplecov-rcov'
 
   gem 'capybara'
+  gem 'selenium-webdriver'
   #gem 'capybara-webkit'
 
 end
