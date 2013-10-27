@@ -3,5 +3,5 @@
 Matriculas abertas
 
 <% if user_signed_in? %>
-  <%= link_to 'Me Inscrever', inscricao_path, method: :post %>
+  <%= link_to 'Me Inscrever', turma_inscricoes_path(@turma), method: :post %>
 <% end %>

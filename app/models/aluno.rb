@@ -1,2 +1,7 @@
 class Aluno < ActiveRecord::Base
-end
+
+  def perfil_completo?
+    true
+  end  # /perfil_completo?
+  
+end  # /Aluno

@@ -4,8 +4,9 @@ Universitas::Application.routes.draw do
   }
 
   resources :cursos
-  resources :turmas
-  resources :inscricoes
+  resources :turmas do
+    resources :inscricoes, on: :member
+  end
   resources :alunos
 
   root "turmas#index"
