@@ -6,6 +6,13 @@ describe TurmasController do
     FactoryGirl.build(:turma_product_on_rails, :id => 2)
   }
 
+  describe "GET 'index'" do
+    it "Deve chamar o metodo index" do
+      Turma.should_receive(:all).once
+      get 'index'
+    end
+  end
+
   describe "GET 'new'" do
     it "Deve chamar o metodo new" do
       Turma.should_receive(:new).once

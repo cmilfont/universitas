@@ -1,0 +1,5 @@
+<% @turmas.each do |turma| %>
+
+  <h1> <%= turma.try(:curso).try(:titulo) %> </h1>
+
+<% end %>

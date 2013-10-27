@@ -14,8 +14,8 @@ FactoryGirl.define do
     link_pagamento "paypal.com"
 
     after(:build) do |f|
-			f.instrutor_id = Instrutor.create(nome: "Milfont")
-			f.tema_id = Tema.create(nome: "Rails")
+			f.instrutor_id = Instrutor.create(nome: "Milfont").id
+			f.tema_id = Tema.create(nome: "Rails").id
 		end
   end
 

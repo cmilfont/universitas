@@ -28,6 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'factory_girl'
 
+gem "debugger"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -48,3 +49,6 @@ group :test, :development do
   #gem 'capybara-webkit'
 
 end
+
+gem 'devise'
+gem 'omniauth-facebook'

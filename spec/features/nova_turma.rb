@@ -1,8 +1,8 @@
 require 'integration_helper'	
-feature "Cadastro de Artes Marciais", %q(
-	Para oferecer uma maneira de categorizar as tecnicas.
-	Como um administrador
-	Eu quero cadastrar uma arte marcial
+feature "Nova turma", %q(
+  Para abrir inscrições de uma nova turma.
+  Como um professor.
+  Eu quero ofertar uma nova data do curso Product On Rails.
 ) do
 	background do
 		FactoryGirl.create(:curso_product_on_rails)
@@ -11,8 +11,8 @@ feature "Cadastro de Artes Marciais", %q(
 	scenario "Nova turma" do
 		visit new_turma_path
 		select "Product On Rails", from: "Curso"
-		select '2011/01/01', :from => 'Data'
-		
-		expect(page).to have_content "Curso Product On Rails"
+		fill_in "Data", with: "02/02/2013"
+    click_on "Cadastrar"
+		expect(page).to have_content "Matriculas abertas"
 	end
 end

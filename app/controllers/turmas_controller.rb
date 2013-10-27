@@ -2,6 +2,11 @@ class TurmasController < ApplicationController
   
 	respond_to :html
 
+  def index
+    @turmas = Turma.all
+    respond_with @turmas
+  end
+
   def new
   	@turma = Turma.new(datas: [DataTurma.new])
   end

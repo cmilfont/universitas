@@ -1,3 +1,7 @@
 <h1> Curso:  <%= @turma.try(:curso).try(:titulo) %> </h1>
 
 Matriculas abertas
+
+<% if user_signed_in? %>
+  <a href="">Inscrever</a>
+<% end %>
