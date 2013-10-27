@@ -6,6 +6,20 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:facebook]
 
+  has_attached_file :avatar, :styles => {
+    :large => "180x180>" ,
+    :normal => "100x100>",
+    :small => "50x50>" ,
+    :square => "50x50>"
+  }
+
+  validates_attachment :avatar,
+                       :presence => true,
+                       :content_type => {
+                         :content_type => ["image/jpeg", "image/png"]
+                       },
+                       :size => { :in => 0..5.megabytes }
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     @email = access_token['extra']['raw_info']['email']
     @facebook_data = mapear_facebook access_token

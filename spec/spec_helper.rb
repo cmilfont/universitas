@@ -9,6 +9,8 @@ require 'rspec/autorun'
 #require 'shoulda'
 #require 'database_cleaner'
 
+require "paperclip/matchers"
+
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 Dir[Rails.root.join("spec/factories/**/*.rb")].each {|f| require f}
 
@@ -17,6 +19,7 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 RSpec.configure do |config|
 
   config.include Devise::TestHelpers, :type => :controller
+  config.include Paperclip::Shoulda::Matchers
 
   DatabaseCleaner.logger = Rails.logger
 

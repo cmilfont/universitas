@@ -50,5 +50,6 @@ group :test, :development do
 
 end
 
+gem "paperclip"
 gem 'devise'
 gem 'omniauth-facebook'

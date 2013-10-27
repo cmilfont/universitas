@@ -3,6 +3,7 @@ Universitas::Application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
+  resources :users
   resources :cursos
   resources :turmas do
     resources :inscricoes, on: :member

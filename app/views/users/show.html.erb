@@ -1,0 +1,7 @@
+<p><%= @user.try(:name) %></p>
+<p><%= @user.try(:email) %></p>
+<p><%= @user.try(:cpf) %></p>
+<p><%= @user.try(:endereco) %></p>
+
+<%= image_tag @user.avatar.url(:large) %>
+<%= image_tag @user.avatar.url(:small) %>
